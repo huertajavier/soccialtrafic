@@ -1,0 +1,17 @@
+{% extends "app/base.html" %}
+d>
+{% load staticfiles %}
+{% block content %}
+<div class="embed-responsive embed-responsive-16by9">
+	<video src="{% static 'app/video/calle.webm'%}"></video>
+</div>
+
+{% endblock %}
+
+
+{% block scripts %}
+
+    {% load staticfiles %}
+<script src="{% static 'app/scripts/jquery.validate.min.js' %}"></script>
+
+{% endblock %}

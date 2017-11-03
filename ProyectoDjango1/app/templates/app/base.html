@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load staticfiles %}
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block titulo %}Document {% endblock titulo %}</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'app/content/bootstrap.min.css' %}" />
+	{% block estilos %}
+		<style>
+				.foot{
+					height: 50px;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					color: white;
+				}
+		</style>
+	{% endblock estilos %}
+	
+	{% block extra %}
+		
+	{% endblock extra %}
+		
+ 
+</head>
+
+<body>
+	{% block menu %}
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<nav class="navbar  navbar-dark bg-primary navbar-expand-md fixed-top" id="mainNav">
+						<div class="container">
+							<a class="navbar-brand js-scroll-trigger" href="/">
+									<img src="{% static 'img/takeoff.png'%}" alt="" width="30" height="30" class="d-inline-block align-top">Parra'Inc</a>
+							<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+								<span class="navbar-toggler-icon"></span>
+							</button>
+							<div class="collapse navbar-collapse" id="navbarResponsive">
+								<ul class="navbar-nav ml-auto text-center">
+									<li class="nav-item">
+										<a class="nav-link js-scroll-trigger" href="{% url 'about' %}">Inicio</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link js-scroll-trigger" href="{% url 'about' %}">Ordenes</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link js-scroll-trigger" href="{% url 'about' %}">Calidad</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link js-scroll-trigger" href="{% url 'about' %}">Nueva Orden</a>
+									</li>
+									<li class="nav-item">
+										{% include 'app/loginpartial.html' %}
+									</li> 
+								</ul>
+							</div>
+						</div>
+					</nav>
+			</div>
+		</div>
+	</div>
+	{% endblock menu %}
+{% block content %}
+
+{% endblock %}
+	
+
+{% block footer %}
+	<footer class="container-fluid bg-primary fixed-bottom d-flex foot">
+		<div class="row align-items-center">
+			<div class="col  ">
+				Huerta Cuevas Javier
+			</div>
+		</div>
+	</footer>
+{% endblock footer %}
+	
+    
+
+    <script src="{% static 'app/scripts/jquery-3.2.1.slim.min.js' %}"></script>
+    <script src="{% static 'app/scripts/popper.min.js' %}"></script>
+    <script src="{% static 'app/scripts/bootstrap.min.js' %}"></script>
+{% block scripts %}{% endblock %}
+
+</body>
+</html>
+

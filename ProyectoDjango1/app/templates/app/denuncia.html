@@ -1,0 +1,60 @@
+{% extends "app/base.html" %}
+
+
+
+{% block content %}
+	<div class="container mt-5 pt-5 mb-5 pb-5">
+		<div class="row">
+			<div class="col">
+				<form method = "POST" enctype="multipart/form-data">
+					{% csrf_token %}  
+					{{form.as_p}}
+		
+					<br>
+		
+					<input type ="submit" value = "Registrar">
+					<input type ="reset" value = "Cancelar">	
+				</form>
+			</div>
+		</div>
+	</div>
+	<script>
+		(function(){
+			//alert("dentro")
+			if(navigator.geolocation){
+				navigator.geolocation.getCurrentPosition(getCoords,getError)
+
+			}
+			else{
+				initialize(0,0)
+			}
+
+			function getCoords(position){
+				var lat=position.coords.latitude;
+				var lng=position.coords.longitude;
+				var post=[lat,lng]
+				document.getElementById("lat").value = lat;
+				document.getElementById("lng").value = lng;
+				//alert(lat)
+				//alert(lng)
+				//initialize(lat,lng)
+			}
+
+			function getError(err){
+				//initialize(0,0)
+			}
+
+			function initialize(lat,lng){
+				var latIng=new google.maps.LatIng(lat,lng);
+				var mapSettings={
+					center:latIng,
+					zoom:15,
+					mapTypeId:google.maps.MapTypeId.ROADMAP
+				}
+
+				map=new google.maps.Map($('#mapa').get[0],mapSettings);
+			}
+		})();
+	</script>
+{% endblock content %}
+	
